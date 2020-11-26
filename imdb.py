@@ -8,16 +8,11 @@ table = soup.find("table")
 list_of_movies = table.find("tbody")
 movies = list_of_movies.find_all("tr")
 
-count = 0
-for movie in movies:
-    count += 1
-    
+for movie in movies[:10]:
     name = movie.find(class_ = "titleColumn")
     rating = movie.find(class_ = "ratingColumn imdbRating")
                         
     print("Movie:", name.find("a").text)
     print("Rating:", rating.text[1:])
 
-    if count == 10:
-        break
     
